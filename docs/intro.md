@@ -1,8 +1,3 @@
----
-title: Customizing ZMK/zmk-config folders
-sidebar_label: Customizing ZMK
----
-
 After verifying you can successfully flash the default firmware, you will probably want to begin customizing your keymap and other keyboard options.
 [In the initial setup tutorial](user-setup.mdx), you created a Github repository called `zmk-config`. This repository is a discrete filesystem which works
 with the main `zmk` firmware repository to build your desired firmware. The main advantage of a discrete configuration folder is ensuring that the

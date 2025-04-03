@@ -1,8 +1,3 @@
----
-title: FAQs
-sidebar_label: FAQs
----
-
 ### Why Zephyr™?
 
 As a best-in-class RTOS, Zephyr™ brings many [benefits](https://www.zephyrproject.org/benefits) to ZMK, such as:
