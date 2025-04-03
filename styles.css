@@ -1,0 +1,233 @@
+/* Основные стили */
+body {
+    background-color: #121212;
+    color: #e0e0e0;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Фиксированная шапка */
+  .navbar {
+    background: #1e1e1e;
+    padding: 6px 12px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+  }
+  
+  .navbar-brand img {
+    height: 30px;
+  }
+  
+  /* Кнопка для открытия меню (гамбургер) */
+  .menu-toggle-btn {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: none;
+  }
+  
+  /* Контейнер поиска в шапке */
+  .search-container {
+    position: relative;
+    display: inline-block;
+    flex: 1;
+    margin: 0 10px;
+  }
+  
+  /* Поле поиска */
+  .search-container input {
+    min-width: 250px;
+    background-color: #333;
+    color: #fff;
+    border: 1px solid #444;
+  }
+  
+  .search-container input:focus {
+    background-color: #444;
+  }
+  
+  .search-results {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #121212;
+    border: 1px solid #333;
+    max-height: 300px;
+    overflow-y: auto;
+    z-index: 2000;
+    border-radius: 0 0 4px 4px;
+  }
+  
+  .search-result-item {
+    padding: 10px;
+    border-bottom: 1px solid #333;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  
+  .search-result-item:last-child {
+    border-bottom: none;
+  }
+  
+  .search-result-item:hover {
+    background: #333;
+  }
+  
+  .result-filename {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 4px;
+  }
+  
+  .result-text {
+    font-size: 0.9em;
+    color: #bbb;
+    font-style: italic;
+  }
+  
+  .left-sidebar {
+    position: fixed;
+    top: 56px;
+    left: 0;
+    width: 260px;
+    bottom: 0;
+    overflow-y: auto;
+    background: #121212;
+    border-right: 1px solid #333;
+    padding: 15px;
+    transition: transform 0.3s ease;
+  }
+  
+  .right-sidebar {
+    position: fixed;
+    top: 56px;
+    right: 0;
+    width: 260px;
+    bottom: 0;
+    overflow-y: auto;
+    background: #121212;
+    border-left: 1px solid #333;
+    padding: 15px;
+  }
+  
+  .main-content {
+    margin-top: 56px;
+    margin-left: 260px;
+    margin-right: 260px;
+    padding: 25px 20px;
+    min-height: calc(100vh - 56px);
+    transition: margin 0.3s ease;
+  }
+  
+  .sub-item {
+    display: block;
+    padding: 8px 10px;
+    margin-bottom: 5px;
+    color: #bbb;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background 0.3s;
+  }
+  
+  .sub-item.active,
+  .sub-item:hover {
+    background: #333;
+    color: #fff;
+  }
+  
+  .section-title {
+    font-weight: bold;
+    color: #f8f9fa;
+    margin: 10px 0;
+    padding-bottom: 5px;
+  }
+  
+  /* Стили для TOC */
+  .toc-item {
+    font-size: 0.9em;
+    padding: 5px 0;
+    cursor: pointer;
+    color: #bbb;
+  }
+  
+  .toc-item:hover {
+    color: #fff;
+  }
+  
+  .markdown-body {
+    color: #e0e0e0;
+  }
+  
+  .markdown-body h1,
+  .markdown-body h2,
+  .markdown-body h3 {
+    color: #f8f9fa;
+  }
+  
+  .markdown-body pre {
+    background-color: #333;
+    border-radius: 5px;
+    padding: 10px;
+    overflow: auto;
+  }
+  
+  .markdown-body code {
+    background-color: #333;
+    color: #f8f9fa;
+    padding: 0 5px;
+    border-radius: 3px;
+  }
+  
+  .markdown-body blockquote {
+    background-color: #1c1c1c;
+    border-left: 5px solid #ccc;
+    padding: 10px 15px;
+    color: #ccc;
+  }
+  
+  .markdown-body ul,
+  .markdown-body ol {
+    margin-left: 20px;
+    padding-left: 10px;
+  }
+  
+  .markdown-body li {
+    margin-bottom: 5px;
+  }
+  
+  .markdown-body a {
+    color: #76c7c0;
+    text-decoration: none;
+  }
+  
+  .markdown-body a:hover {
+    text-decoration: underline;
+  }
+  
+  @media (max-width: 768px) {
+    .left-sidebar {
+      transform: translateX(-100%);
+    }
+    .left-sidebar.open {
+      transform: translateX(0);
+    }
+    .right-sidebar {
+      display: none;
+    }
+    .main-content {
+      margin: 56px 10px 10px 10px;
+    }
+    .search-container input {
+      min-width: auto;
+      width: 100%;
+    }
+    .menu-toggle-btn {
+      display: block;
+    }
+  }
+  
