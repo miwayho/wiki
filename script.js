@@ -54,7 +54,6 @@ function generateTOC() {
   });
 }
 
-// Загрузка и отображение первого выбранного файла
 document.querySelectorAll('.sub-item').forEach(link => {
   link.addEventListener('click', function(e) {
     e.preventDefault();
@@ -69,9 +68,8 @@ document.querySelectorAll('.sub-item').forEach(link => {
 
 loadMD(document.querySelector('.sub-item.active').dataset.md);
 
-// Функция для получения списка файлов в папке /docs на GitHub
 async function getFilesInDocs() {
-  if (filesCache.length > 0) return filesCache;  // Возвращаем кэшированные файлы, если они есть
+  if (filesCache.length > 0) return filesCache; 
   try {
     const response = await fetch('https://api.github.com/repos/miwayho/wiki/contents/docs');
     if (!response.ok) throw new Error('Ошибка загрузки списка файлов');
@@ -86,17 +84,16 @@ async function getFilesInDocs() {
 
 async function searchDocuments(query) {
   const resultsContainer = document.getElementById('searchResults');
-  resultsContainer.innerHTML = '';  // Очистить старые результаты
-
+  resultsContainer.innerHTML = '';
   if (!query) {
-    resultsContainer.style.display = 'none'; // Скрыть, если нет запроса
+    resultsContainer.style.display = 'none';
     return;
   }
 
   query = query.toLowerCase();
   let resultsFound = false;
 
-  const files = await getFilesInDocs();  // Получаем файлы из кэша или с API
+  const files = await getFilesInDocs();
 
   for (const file of files) {
     try {
@@ -128,7 +125,7 @@ async function searchDocuments(query) {
           }
           resultsContainer.innerHTML = '';
           document.getElementById('searchInput').value = '';
-          resultsContainer.style.display = 'none'; // Скрыть результаты после клика
+          resultsContainer.style.display = 'none';
         });
         resultsContainer.appendChild(resultItem);
         resultsFound = true;
@@ -138,7 +135,7 @@ async function searchDocuments(query) {
     }
   }
 
-  resultsContainer.style.display = resultsFound ? 'block' : 'none';  // Показывать или скрывать результаты
+  resultsContainer.style.display = resultsFound ? 'block' : 'none';
 }
 
 document.getElementById('searchInput').addEventListener('input', (e) => {
